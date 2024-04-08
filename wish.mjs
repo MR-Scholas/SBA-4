@@ -49,8 +49,8 @@ export async function wish(galleryString)
 
     const nameContainer=document.createElement("div")
     nameContainer.style.width="80%"
-    nameContainer.style.height="10%"
-    nameContainer.style.marginTop="15%"
+    nameContainer.style.height="20%"
+    nameContainer.style.marginTop="5%"
     nameContainer.style.textAlign="right"
     nameContainer.innerHTML=
     `<p><h1>${jsonData.name}</h1></p><br>
