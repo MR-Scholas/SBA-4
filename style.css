@@ -1,0 +1,76 @@
+:root {
+    --lighter-rgb: 110 100 150;
+    --darker-rgb: 30 20 70;
+  }
+
+@font-face
+{
+    font-family:HY;
+    src:url(HYImpact-Regular.ttf)
+}
+  
+body
+{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.backgroundContainer
+{
+    background:radial-gradient(rgb(var(--lighter-rgb)), rgb(var(--darker-rgb)));
+    height: 100%;  
+    width:100%;
+    overflow: hidden;
+    position: absolute;
+    z-index:-2;
+}
+
+.background
+{
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index:-1;
+    background-image:url(background.png);
+    background-size:10%;
+    animation-name:pan;
+    animation-duration:180s;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    opacity: 0.25;
+}
+
+@keyframes pan
+{
+    0% {background-position:0% 0%;}
+    100% {background-position:100% 0%;}
+}
+
+.overlay
+{
+    background: radial-gradient(circle, transparent 75%, rgb(var(--darker-rgb)));
+    position: absolute;
+    width:100%;
+    height:100%;
+    opacity:0.9;
+    z-index:0;
+}
+
+#navbar
+{
+    position:absolute;
+}
+
+#app
+{
+    height:100%;
+    width:100%;
+    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    align-content:center;
+    flex-wrap:wrap;
+}
