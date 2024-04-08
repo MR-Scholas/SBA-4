@@ -1,13 +1,6 @@
 export const app=document.getElementById("app")
 import { wish } from "./wish.mjs"
 
-async function apiTest() 
-{
-    const response=await fetch("https://genshin.jmp.blue/")
-    const jsonData=await response.json()
-    app.innerText=JSON.stringify(jsonData)
-}
-
 const paimonContainer=document.createElement("div")
 paimonContainer.style.display="flex"
 paimonContainer.style.border="solid 1px white"
@@ -33,7 +26,7 @@ starterButtonContainer.style.textAlign="center"
 app.appendChild(starterButtonContainer)
 const starterButton=document.createElement("button")
 starterButton.innerText="Wish"
-starterButton.addEventListener("click",function(){wish()})
+starterButton.addEventListener("click",function(){wish(false)})
 starterButton.style.width="10%"
 starterButton.style.height="100%"
 starterButtonContainer.appendChild(starterButton)

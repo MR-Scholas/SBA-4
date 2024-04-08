@@ -1,4 +1,5 @@
 import { app } from "./app.mjs"
+import { gallery } from "./gallery.mjs"
 
 export async function wish(galleryString)
 {
@@ -11,12 +12,17 @@ export async function wish(galleryString)
     const preResponse=await fetch("https://genshin.jmp.blue/characters")
     const preJsonData=await preResponse.json()
     
-    let pull
-    do
+    let pullString=""
+    if(galleryString===false)
     {
-        pull=Math.floor(Math.random()*preJsonData.length)
-    } while(pull>=63 && pull<=67) //The Traveler can't be wished for in the original game
-    let pullString=preJsonData[pull]
+        let pull
+        do
+        {
+            pull=Math.floor(Math.random()*preJsonData.length)
+        } while(pull>=63 && pull<=67) //The Traveler can't be wished for in the original game
+        pullString=preJsonData[pull]
+    }
+    else{pullString=galleryString}
     const response=await fetch(`https://genshin.jmp.blue/characters/${pullString}`)
     const jsonData=await response.json()
     
@@ -26,11 +32,12 @@ export async function wish(galleryString)
     const splash=document.createElement("img")
     splash.src=`https://genshin.jmp.blue/characters/${pullString}/gacha-splash`
     splash.addEventListener("error",()=>{splash.src=`https://genshin.jmp.blue/characters/${pullString}/card`})
-    splash.style.maxWidth="100%"
     splash.style.maxHeight="100%"
     splash.style.height="auto"
     splash.style.width="auto"
     splash.style.objectFit="contain"
+    splash.style.margin="auto"
+    splash.style.display="block"
     leftContainer.appendChild(splash)
 
     const rightContainer=document.createElement("div")
@@ -86,7 +93,7 @@ export async function wish(galleryString)
     rightContainer.appendChild(buttonContainer)
     const wishButton=document.createElement("button")
     wishButton.innerText="Wish"
-    wishButton.addEventListener("click",function(){wish()})
+    wishButton.addEventListener("click",function(){wish(false)})
     wishButton.style.width="30%"
     wishButton.style.height="20%"
     buttonContainer.appendChild(wishButton)
