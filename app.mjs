@@ -1,5 +1,5 @@
 export const app=document.getElementById("app")
-import { firstWish } from "./wish.mjs"
+import { wish } from "./wish.mjs"
 
 async function apiTest() 
 {
@@ -33,7 +33,7 @@ starterButtonContainer.style.textAlign="center"
 app.appendChild(starterButtonContainer)
 const starterButton=document.createElement("button")
 starterButton.innerText="Wish"
-starterButton.addEventListener("click",function(){firstWish()})
+starterButton.addEventListener("click",function(){wish()})
 starterButton.style.width="10%"
 starterButton.style.height="100%"
 starterButtonContainer.appendChild(starterButton)

@@ -17,6 +17,11 @@ body
     padding:0;
 }
 
+h1,h2,h3
+{
+    line-height:0%;
+}
+
 .backgroundContainer
 {
     background:radial-gradient(rgb(var(--lighter-rgb)), rgb(var(--darker-rgb)));
@@ -72,5 +77,15 @@ body
     justify-content:center;
     align-items:center;
     align-content:center;
+    flex-wrap:wrap;
+}
+
+.wishContainer
+{
+    height:100%;
+    width:50%;
+    display:flex;
+    font-family:HY;
+    color:white;
     flex-wrap:wrap;
 }
